@@ -13,13 +13,14 @@
  */
 // write your code here
 
-
+var starWarsHeroes = ["Luke Skywalker", "Princess Leia", "Han Solo", "Rey"]
 
 
 /*: question2
  ### 2. Now create another variable `Array` called `starWarsVillains` that contains the villains of _Star Wars_: Darth Vader and Emperor Palpatine.
  */
 // write your code here
+var starWarsVillains = ["Darth Vader", "Emperor Palpatine"]
 
 
 
@@ -28,7 +29,7 @@
  ### 3. Finally, create a third variable `Array` called `starWarsDroids` that contains the droids of _Star Wars_: R2-D2, C-3P0, IG-88, and BB-8 (the cutest droid of them all).
  */
 // write your code here
-
+var starWarsDroids = ["R2-D2", "C-3P0", "IG-88", "BB-8"]
 
 
 
@@ -37,7 +38,7 @@
  */
 // write your code here
 
-
+starWarsVillains.append("Kylo Ren")
 
 
 /*: question5
@@ -45,7 +46,7 @@
  */
 // write your code here
 
-
+starWarsDroids.removeAtIndex(2)
 
 
 /*: question6
@@ -53,7 +54,10 @@
  */
 // write your code here
 
-
+var starWarsCharacters = ["Heroes" : starWarsHeroes,
+                            "Villains" :starWarsVillains,
+                            "Droids" : starWarsDroids
+                          ]
 
 
 /*: question7
@@ -61,6 +65,7 @@
  */
 // write your code here
 
+var starWarsGangsters = ["Watto", "Jabba the Hutt"]
 
 
 
@@ -69,7 +74,7 @@
  */
 // write your code here
 
-
+starWarsCharacters["Gangsters"] = starWarsGangsters 
 
 
 /*: question9
@@ -77,7 +82,10 @@
  */
 // write your code here
 
-
+for items in starWarsCharacters.keys {
+    
+    print(items)
+}
 
 
 /*: question10
@@ -86,21 +94,30 @@
 // write your code here
 
 
-
+for (index, items) in starWarsCharacters.keys.enumerate() {
+    
+    print("\(index + 1). \(items)")
+}
 
 /*: question11
  ### 11. Use an if statement and the dictionary's `isEmpty` property to print "The dictionary is empty!" to the console if it is empty; otherwise, print "There are <Count> items in the dictionary." What do you expect to see in the console? What _do_ you see?
  */
 // write your code here
 
-
+if starWarsCharacters.isEmpty {
+    
+    print("The dictionary is empty!")
+} else {
+    
+    print("There are \(starWarsCharacters.count) items in the dictionary")
+}
 
 
 /*: question12
  ### 12. We forgot some more pretty important characters. Create another variable array called `starWarsJedi`. Add the names of these important _Star Wars_ Jedi: Yoda, Obi-Wan Kenobi, Mace Windu.
  */
 // write your code here
-
+var starWarsJedi = ["Yoda", "Obi-Wan Kenobi", "Mace Windu"]
 
 
 
@@ -109,6 +126,14 @@
  */
 // write your code here
 
+if starWarsCharacters.updateValue(starWarsJedi, forKey: "Jedi") == nil {
+    
+    print("Updated Jedi key")
+    
+} else {
+    
+    print("Added Jedi Key")
+}
 
 
 
@@ -117,7 +142,14 @@
  */
 // write your code here
 
-
+if starWarsCharacters.removeValueForKey("Bounty Hunters") == nil {
+    
+    print("Bounty Hunters did not exist")
+    
+} else {
+    
+    print("Removed Bounty Hunters")
+}
 
 
 /*: question15
@@ -126,11 +158,13 @@
  After you've fixed the error, print out the contents of the "Jedi" key in `starWarsCharacters` to make sure your code works.
  */
 
-/* Start by uncommenting this block of code
+
  if var jedi = starWarsCharacters["Jedi"] {
  jedi.append("Aayla Secura")
+    
+ starWarsCharacters["Jedi"] = jedi
  }
- */
+
 
 
 
@@ -139,13 +173,13 @@
  ### 16. We want to print out the names of our _Star Wars_ heroes line-by-line. Unfortunately, the code below isn't working correctly -- nothing gets printed! Can you fix it so that our heroes are printed out? (Again, the code has been commented out so that it doesn't interfere with earlier questions until they have been completed. Start by uncommenting the code, but there's still another bug!)
  */
 
-/*
- if let heroes = starWarsCharacters["Heros"] {
- for hero in heroes {
- print(hero)
+
+ if let heroes = starWarsCharacters["Heroes"] {
+    for (index, hero) in heroes.enumerate() {
+        print(hero)
+    }
  }
- }
- */
+
 
 
 
